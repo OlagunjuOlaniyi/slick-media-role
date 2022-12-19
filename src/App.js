@@ -5,11 +5,11 @@ import SearchMovie from "./Components/SearchMovie/SearchMovie";
 
 function App() {
   return (
-    <div className="App">
+    <>
       <Navbar />
       <Hero />
       <SearchMovie />
-    </div>
+    </>
   );
 }
 
