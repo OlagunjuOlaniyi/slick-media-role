@@ -1,0 +1,42 @@
+.search {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.search__label {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.search__input input {
+  border: 1px solid #000;
+  padding: 8px 10px;
+  width: 100%;
+}
+
+.movie__cat {
+  font-size: 24px;
+  padding: 10px 0;
+}
+
+.movie__lists {
+  display: flex;
+
+  gap: 10px;
+}
+
+.movie {
+  min-height: 300px;
+  min-width: 300px;
+  background-color: #000;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie__name {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 400;
+}
