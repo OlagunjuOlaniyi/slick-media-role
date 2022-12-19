@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./SearchMovie.css";
 // import axios from "../api/axios";
-import axios, { Axios } from "axios";
+import axios from "axios";
 
 const SearchMovie = () => {
   const [search, setSearch] = useState("");
