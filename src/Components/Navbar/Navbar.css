@@ -1,6 +1,6 @@
 .nav {
   background-color: #292929;
-  padding: 20px 20px;
+  padding: 30px 20px;
 }
 
 .nav__logo {
@@ -14,4 +14,10 @@
   font-size: 22px;
   text-decoration: none;
   color: #fff;
+}
+
+@media screen and (max-width: 960px) {
+  .nav__logo {
+    text-align: center;
+  }
 }

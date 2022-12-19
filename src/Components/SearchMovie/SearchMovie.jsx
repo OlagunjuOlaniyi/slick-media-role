@@ -1,15 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./SearchMovie.css";
+// import axios from "../api/axios";
+import axios, { Axios } from "axios";
 
 const SearchMovie = () => {
+  const [search, setSearch] = useState("");
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`https://www.omdbapi.com/?s=inception"&apikey=9ecd1edd`)
+      .then((response) => {
+        const results = response.data;
+        const result = results.Search;
+
+        setMovies(result);
+      });
+  }, []);
+
+  console.log("movie", movies);
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    const toLowerCase = e.target.value.toLowerCase();
+    setSearch(toLowerCase);
+  };
+
+  const movieLists = movies.filter((movie) => {
+    if (search === "") {
+      return movie;
+    } else {
+      return movie.Title.toLowerCase().match(search);
+    }
+  });
+
   return (
     <div className="search section__padding">
-      <form action="">
+      <form>
         <label htmlFor="search" className="search__label">
           Search
         </label>
         <div className="search__input">
-          <input type="text" id="search" />
+          <input
+            type="text"
+            id="search"
+            value={search}
+            onChange={handleChange}
+          />
         </div>
       </form>
 
@@ -21,10 +58,10 @@ const SearchMovie = () => {
         </div>
 
         <div className="movie__lists">
-          {[1, 2, 3, 4, 5, 6].map((index) => {
+          {movieLists.map((mov, index) => {
             return (
-              <div className="movie">
-                <h4 className="movie__name">Movie Name</h4>
+              <div className="movie" key={index}>
+                <h4 className="movie__name">{mov.Title}</h4>
               </div>
             );
           })}
@@ -37,10 +74,10 @@ const SearchMovie = () => {
         </div>
 
         <div className="movie__lists">
-          {[1, 2, 3, 4, 5, 6].map((index) => {
+          {movies.map((mov, index) => {
             return (
-              <div className="movie">
-                <h4 className="movie__name">Movie Name</h4>
+              <div className="movie" key={index}>
+                <h4 className="movie__name">{mov.Title}</h4>
               </div>
             );
           })}

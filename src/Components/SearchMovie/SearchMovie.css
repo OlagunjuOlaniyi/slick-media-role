@@ -1,6 +1,7 @@
 .search {
   padding-top: 20px;
   padding-bottom: 20px;
+  padding-right: 20px;
 }
 
 .search__label {
@@ -33,10 +34,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  padding: 10px;
 }
 
 .movie__name {
   color: #fff;
   font-size: 24px;
   font-weight: 400;
+}
+
+@media screen and (max-width: 780px) {
+  .movie {
+    min-height: 200px;
+    min-width: 200px;
+  }
+
+  .movie__name {
+    font-size: 18px;
+  }
 }
